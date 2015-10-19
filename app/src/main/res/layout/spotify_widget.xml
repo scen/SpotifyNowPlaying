@@ -31,24 +31,25 @@
         android:gravity="center"
         android:orientation="horizontal">
         <ImageButton
-            android:layout_width="30dp"
-            android:background="?android:selectableItemBackground"
-            android:src="@drawable/ic_skip_previous_white_48dp"
-            android:scaleType="fitXY"
-            android:layout_height="30dp"/>
-        <ImageButton
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:layout_width="40dp"
             android:background="?android:selectableItemBackground"
-            android:src="@drawable/ic_play_arrow_white_48dp"
+            android:src="@drawable/media_previous"
+            android:scaleType="fitXY"
+            android:layout_height="40dp"/>
+        <ImageButton
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_width="40dp"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/media_play"
+            android:id="@+id/play_pause"
             android:scaleType="fitXY"
             android:layout_height="40dp" />
         <ImageButton
-            android:layout_width="30dp"
+            android:layout_width="40dp"
             android:background="?android:selectableItemBackground"
-            android:src="@drawable/ic_skip_next_white_48dp"
+            android:src="@drawable/media_next"
             android:scaleType="fitXY"
-            android:layout_height="30dp" />
+            android:layout_height="40dp" />
     </LinearLayout>
 </LinearLayout>
