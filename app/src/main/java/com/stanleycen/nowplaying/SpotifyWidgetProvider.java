@@ -83,10 +83,11 @@ public class SpotifyWidgetProvider extends AppWidgetProvider {
 
             views.setImageViewResource(R.id.play_pause, curPlaystate ? R.drawable.media_pause : R.drawable.media_play);
 
-            Intent playPauseIntent = new Intent(context, SpotifyWidgetProvider.class);
-            playPauseIntent.setAction("PLAYPAUSE");
-
-            PendingIntent pi = PendingIntent.getBroadcast(context, 0, playPauseIntent, 0);
+//            Intent playPauseIntent = new Intent(context, SpotifyWidgetProvider.class);
+//            playPauseIntent.setAction("PLAYPAUSE");
+//
+//            PendingIntent pi = PendingIntent.getBroadcast(context, 0, playPauseIntent, 0);
+            // TODO: implement onClick handler
 
             appWidgetManager.updateAppWidget(widgetId, views);
         }
