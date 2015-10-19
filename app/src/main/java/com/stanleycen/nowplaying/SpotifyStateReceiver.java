@@ -1,11 +1,14 @@
 package com.stanleycen.nowplaying;
 
+import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.util.Random;
 
 /**
  * Created by scen on 10/18/15.
@@ -30,12 +33,25 @@ public class SpotifyStateReceiver extends BroadcastReceiver {
         return action.toLowerCase().contains(QUEUE_CHANGED_INTENT);
     }
 
+    private void refreshWidgets(Context context) {
+        Intent intent = new Intent(context, SpotifyWidgetProvider.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, new int[]{0});
+        context.sendBroadcast(intent);
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         Toast.makeText(context, action, Toast.LENGTH_SHORT).show();
         Log.i(DEBUG_TAG, ">>>>>>>" + action);
         Bundle extras = intent.getExtras();
+        NowPlayingState.setTrackname(context, "Anna Sun");
+        NowPlayingState.setAlbum(context, "EP");
+        NowPlayingState.setArtist(context, "Walk the Moon");
+        refreshWidgets(context);
+
+        //TODO: debounce the sends
 
         for (String key : extras.keySet()) {
             Log.i(DEBUG_TAG, key + ": " + extras.get(key).toString());

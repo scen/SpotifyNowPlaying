@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.stanleycen.nowplaying"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -24,4 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.+'
     compile 'com.android.support:support-v4:22.+'
+    compile 'com.github.johnkil.android-robototextview:robototextview:2.3.0'
 }

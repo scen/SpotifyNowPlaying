@@ -24,6 +24,13 @@
                 <action android:name="com.spotify.music.playbackstatechanged"></action>
             </intent-filter>
         </receiver>
+        <receiver android:name="SpotifyWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/spotify_widget" />
+        </receiver>
     </application>
 
 </manifest>
