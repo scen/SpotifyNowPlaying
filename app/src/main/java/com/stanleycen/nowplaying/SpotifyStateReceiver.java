@@ -84,20 +84,18 @@ public class SpotifyStateReceiver extends BroadcastReceiver {
                     shouldUpdateWidget |= curPlaystate != newPlaystate;
                 }
 
-                String track = extras.getString("track", null);
-                if (track != null) {
+                // Only update track, album, artist if they are all non-null and non-empty.
+                String track = extras.getString("track", "");
+                String album = extras.getString("album", "");
+                String artist = extras.getString("artist", "");
+
+                if (!track.isEmpty() && !album.isEmpty() && !artist.isEmpty()) {
                     NowPlayingState.setTrackname(context, track);
                     shouldUpdateWidget |= !track.equals(curTrack);
-                }
 
-                String album = extras.getString("album", null);
-                if (album != null) {
                     NowPlayingState.setAlbum(context, album);
                     shouldUpdateWidget |= !album.equals(curAlbum);
-                }
 
-                String artist = extras.getString("artist", null);
-                if (artist != null) {
                     NowPlayingState.setArtist(context, artist);
                     shouldUpdateWidget |= !artist.equals(curArtist);
                 }
